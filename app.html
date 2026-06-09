@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#3B82F6" />
+  <title>Smart Spend Coach – Think Before You Buy</title>
+  <meta name="description" content="Convert any purchase into hours of work and instantly discover whether it is a smart financial decision." />
+  <meta property="og:title" content="Smart Spend Coach – Think Before You Buy" />
+  <meta property="og:description" content="Convert purchases into work hours and make smarter spending decisions." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233B82F6'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-family='Inter,Arial' font-size='34' font-weight='800' fill='white'%3ES%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <!-- Loading screen -->
+  <div id="loader" class="loader" aria-hidden="true"><div class="loader__spinner"></div></div>
+
+  <!-- Scroll progress -->
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Navigation -->
+  <header id="navbar" class="navbar">
+    <div class="container nav__inner">
+      <a href="#home" class="nav__logo" aria-label="Smart Spend Coach home">
+        <span class="nav__logo-mark">S</span>
+        <span class="nav__logo-text">Smart Spend <em>Coach</em></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#features">Features</a>
+        <a href="#faq">FAQ</a>
+        <a href="#download">Download App</a>
+      </nav>
+      <div class="nav__actions">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="#calculator" class="btn btn--ghost">Try Calculator</a>
+        <a href="#download" class="btn btn--primary">Download App</a>
+        <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu" hidden>
+      <a href="#home">Home</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#features">Features</a>
+      <a href="#faq">FAQ</a>
+      <a href="#download">Download App</a>
+      <a href="#calculator" class="btn btn--primary btn--full">Try Calculator</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__copy reveal">
+          <span class="badge badge--soft">New · Smarter Spending</span>
+          <h1 class="hero__title">Think Before <span class="gradient-text">You Buy</span></h1>
+          <p class="hero__sub">Convert any purchase into hours of work and instantly discover whether it is a smart financial decision.</p>
+          <div class="hero__ctas">
+            <a href="#calculator" class="btn btn--primary btn--lg">Try Free Calculator</a>
+            <a href="#download" class="btn btn--outline btn--lg">Download Android App</a>
+          </div>
+          <div class="hero__stats">
+            <div class="stat"><div class="stat__num" data-count="10000" data-suffix="+">0</div><div class="stat__label">Purchases Evaluated</div></div>
+            <div class="stat"><div class="stat__num" data-count="95" data-suffix="%">0</div><div class="stat__label">User Satisfaction</div></div>
+            <div class="stat"><div class="stat__num" data-count="3" data-suffix="s">0</div><div class="stat__label">Avg Decision Time</div></div>
+          </div>
+        </div>
+        <div class="hero__visual reveal">
+          <div class="phone">
+            <div class="phone__notch"></div>
+            <div class="phone__screen">
+              <div class="phone__app">
+                <div class="phone__row"><span>Purchase</span><strong>$240</strong></div>
+                <div class="phone__row"><span>Hourly Rate</span><strong>$15</strong></div>
+                <div class="phone__bar"><div class="phone__bar-fill"></div></div>
+                <div class="phone__decision phone__decision--think">THINK · 12 hrs</div>
+                <div class="phone__hint">Take a moment before purchasing.</div>
+              </div>
+            </div>
+          </div>
+          <div class="float-card float-card--1">
+            <div class="float-card__icon safe">✓</div>
+            <div><div class="float-card__t">Safe Purchase</div><div class="float-card__s">Coffee · 0.5 hrs</div></div>
+          </div>
+          <div class="float-card float-card--2">
+            <div class="float-card__icon risky">!</div>
+            <div><div class="float-card__t">Risky Purchase</div><div class="float-card__s">Gadget · 40 hrs</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section id="calculator" class="section section--calc">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Smart Calculator</span>
+          <h2>Is this purchase worth your time?</h2>
+          <p>Enter your income and the purchase price. We'll instantly translate the cost into hours of your life.</p>
+        </div>
+        <div class="calc-grid">
+          <form class="calc-form glass reveal" id="calc-form" autocomplete="off">
+            <div class="form-row">
+              <label>Currency
+                <select id="currency">
+                  <option value="USD">$ USD</option>
+                  <option value="NPR">रू NPR</option>
+                  <option value="EUR">€ EUR</option>
+                  <option value="GBP">£ GBP</option>
+                  <option value="INR">₹ INR</option>
+                </select>
+              </label>
+              <label>Monthly Income
+                <input type="number" id="income" min="0" step="100" placeholder="3000" />
+              </label>
+            </div>
+            <div class="form-row">
+              <label>Working Days / Month
+                <input type="number" id="days" min="1" max="31" value="22" />
+              </label>
+              <label>Working Hours / Day
+                <input type="number" id="hours" min="1" max="24" value="8" />
+              </label>
+            </div>
+            <div class="form-row">
+              <label>Current Savings (optional)
+                <input type="number" id="savings" min="0" step="50" placeholder="0" />
+              </label>
+              <label>Purchase Price
+                <input type="number" id="price" min="0" step="10" placeholder="200" />
+              </label>
+            </div>
+            <p class="form-hint">Calculations update live as you type.</p>
+          </form>
+
+          <div class="calc-result glass reveal" id="calc-result">
+            <div class="calc-result__head">
+              <span id="decision-badge" class="decision-badge decision-badge--idle">Awaiting input</span>
+              <span id="decision-msg" class="calc-result__msg">Fill in your income and purchase price to see the result.</span>
+            </div>
+            <div class="calc-result__grid">
+              <div class="kpi"><div class="kpi__label">Hours Required</div><div class="kpi__val" id="r-hours">—</div></div>
+              <div class="kpi"><div class="kpi__label">Days Required</div><div class="kpi__val" id="r-days">—</div></div>
+              <div class="kpi"><div class="kpi__label">Hourly Rate</div><div class="kpi__val" id="r-rate">—</div></div>
+              <div class="kpi"><div class="kpi__label">Savings Impact</div><div class="kpi__val" id="r-savings">—</div></div>
+              <div class="kpi"><div class="kpi__label">Money Still Needed</div><div class="kpi__val" id="r-needed">—</div></div>
+              <div class="kpi"><div class="kpi__label">Recommendation</div><div class="kpi__val kpi__val--sm" id="r-reco">—</div></div>
+            </div>
+            <div class="progress"><div id="progress-fill" class="progress__fill"></div></div>
+            <button type="button" id="save-decision" class="btn btn--primary btn--full">Save Decision</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="history" class="section">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Purchase History</span>
+          <h2>Your Recent Decisions</h2>
+          <p>Stored privately in your browser. Nothing leaves your device.</p>
+        </div>
+        <div class="history-toolbar reveal">
+          <button id="clear-history" class="btn btn--outline">Clear History</button>
+        </div>
+        <div id="history-list" class="history-list reveal">
+          <p class="empty" id="history-empty">No decisions saved yet. Try the calculator above.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSIGHTS -->
+    <section id="insights" class="section section--alt">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Monthly Insights</span>
+          <h2>Your Spending Intelligence Dashboard</h2>
+        </div>
+        <div class="insight-grid reveal">
+          <div class="insight-card"><div class="insight-card__label">Total Decisions</div><div class="insight-card__val" id="i-total">0</div></div>
+          <div class="insight-card insight-card--safe"><div class="insight-card__label">SAFE</div><div class="insight-card__val" id="i-safe">0</div></div>
+          <div class="insight-card insight-card--think"><div class="insight-card__label">THINK</div><div class="insight-card__val" id="i-think">0</div></div>
+          <div class="insight-card insight-card--risky"><div class="insight-card__label">RISKY</div><div class="insight-card__val" id="i-risky">0</div></div>
+          <div class="insight-card"><div class="insight-card__label">Avg Purchase</div><div class="insight-card__val" id="i-avgcost">—</div></div>
+          <div class="insight-card"><div class="insight-card__label">Avg Work Hours</div><div class="insight-card__val" id="i-avghours">—</div></div>
+          <div class="insight-card insight-card--wide"><div class="insight-card__label">Most Common Decision</div><div class="insight-card__val" id="i-common">—</div></div>
+        </div>
+        <div class="chart-card glass reveal">
+          <h3>Decision Distribution</h3>
+          <div class="chart" id="chart"></div>
+          <div class="chart-legend">
+            <span><i class="dot safe"></i> Safe</span>
+            <span><i class="dot think"></i> Think</span>
+            <span><i class="dot risky"></i> Risky</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">How It Works</span>
+          <h2>Three steps to smarter spending</h2>
+        </div>
+        <div class="steps">
+          <div class="step reveal"><div class="step__n">1</div><h3>Enter Your Income</h3><p>Tell us how much you earn and how you work — we calculate your real hourly rate.</p></div>
+          <div class="step reveal"><div class="step__n">2</div><h3>Add Purchase Details</h3><p>Type the price you're considering. We factor in usable savings automatically.</p></div>
+          <div class="step reveal"><div class="step__n">3</div><h3>Get Smart Guidance</h3><p>See SAFE, THINK, or RISKY in seconds — and decide with confidence.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="section section--alt">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Key Benefits</span>
+          <h2>Why people love Smart Spend Coach</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="feature reveal"><div class="feature__icon">🛑</div><h3>Avoid Impulse Purchases</h3><p>Pause and reflect before you spend.</p></div>
+          <div class="feature reveal"><div class="feature__icon">⏳</div><h3>Real Cost of Spending</h3><p>See purchases as hours of your life.</p></div>
+          <div class="feature reveal"><div class="feature__icon">📈</div><h3>Better Financial Habits</h3><p>Build a healthier money mindset.</p></div>
+          <div class="feature reveal"><div class="feature__icon">🧠</div><h3>Financial Awareness</h3><p>Understand the impact of every dollar.</p></div>
+          <div class="feature reveal"><div class="feature__icon">📊</div><h3>Track Decisions</h3><p>Review your history any time.</p></div>
+          <div class="feature reveal"><div class="feature__icon">💪</div><h3>Spending Discipline</h3><p>Stay aligned with your goals.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section id="download" class="section">
+      <div class="container download">
+        <div class="download__copy reveal">
+          <span class="eyebrow">Mobile App</span>
+          <h2>Smart Spend Coach on Android</h2>
+          <p>Take your decisions anywhere. Real-time calculations, offline access, and total privacy.</p>
+          <ul class="check-list">
+            <li>Real-time calculations</li>
+            <li>Offline access</li>
+            <li>Saved profile</li>
+            <li>Fast performance</li>
+            <li>Private and secure</li>
+          </ul>
+          <div class="hero__ctas">
+            <a href="#" class="btn btn--primary btn--lg">Download on Google Play</a>
+            <a href="#features" class="btn btn--outline btn--lg">Learn More</a>
+          </div>
+        </div>
+        <div class="download__visual reveal">
+          <div class="phone phone--lg">
+            <div class="phone__notch"></div>
+            <div class="phone__screen phone__screen--alt">
+              <div class="phone__app">
+                <div class="phone__head">Smart Spend</div>
+                <div class="phone__chip phone__chip--safe">SAFE</div>
+                <div class="phone__row"><span>Purchase</span><strong>$45</strong></div>
+                <div class="phone__row"><span>Hours</span><strong>2.5h</strong></div>
+                <div class="phone__bar"><div class="phone__bar-fill" style="width:25%;background:#22C55E"></div></div>
+                <div class="phone__hint">Looks safe to buy.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Loved by smart spenders</span>
+          <h2>What our users say</h2>
+        </div>
+        <div class="carousel reveal">
+          <button class="carousel__btn" id="t-prev" aria-label="Previous">‹</button>
+          <div class="carousel__track" id="t-track"></div>
+          <button class="carousel__btn" id="t-next" aria-label="Next">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Financial Education</span>
+          <h2>Learn the principles behind smarter spending</h2>
+        </div>
+        <div class="edu-grid">
+          <article class="edu reveal"><h3>Why Thinking in Work Hours Matters</h3><p>Translating cost into time reveals the true exchange behind every purchase.</p></article>
+          <article class="edu reveal"><h3>How to Avoid Impulse Buying</h3><p>A short pause and a simple metric can dramatically improve decisions.</p></article>
+          <article class="edu reveal"><h3>Understanding Opportunity Cost</h3><p>Every dollar spent is a dollar not invested in your future self.</p></article>
+          <article class="edu reveal"><h3>Building Better Spending Habits</h3><p>Small, consistent choices compound into long-term financial freedom.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section section--alt">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faq reveal" id="faq-list"></div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="section">
+      <div class="container newsletter glass reveal">
+        <div>
+          <h2>Get smart spending tips</h2>
+          <p>One short email a week. Unsubscribe any time.</p>
+        </div>
+        <form id="newsletter-form" class="newsletter__form" novalidate>
+          <input type="email" id="newsletter-email" placeholder="you@example.com" required />
+          <button class="btn btn--primary" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section--alt">
+      <div class="container contact">
+        <div class="contact__copy reveal">
+          <span class="eyebrow">Contact</span>
+          <h2>We'd love to hear from you</h2>
+          <p>Questions, feedback, or partnership ideas — drop us a note.</p>
+          <div class="socials">
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="LinkedIn">IN</a>
+            <a href="#" aria-label="GitHub">GH</a>
+          </div>
+        </div>
+        <form id="contact-form" class="contact__form glass reveal" novalidate>
+          <label>Name<input type="text" id="c-name" required /></label>
+          <label>Email<input type="email" id="c-email" required /></label>
+          <label>Message<textarea id="c-message" rows="5" required></textarea></label>
+          <button class="btn btn--primary btn--full" type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="nav__logo"><span class="nav__logo-mark">S</span><span class="nav__logo-text">Smart Spend <em>Coach</em></span></div>
+        <p>Think before you buy. Decide with clarity.</p>
+      </div>
+      <div class="footer__cols">
+        <div><h4>Product</h4><a href="#calculator">Calculator</a><a href="#features">Features</a><a href="#faq">FAQ</a></div>
+        <div><h4>Company</h4><a href="#contact">Contact</a><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+        <div><h4>Get the App</h4><a href="#download">Android</a><a href="#download">Google Play</a></div>
+      </div>
+    </div>
+    <div class="container footer__bottom">© <span id="year"></span> Smart Spend Coach. All rights reserved.</div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="/js/script.js" defer></script>
+</body>
+</html>
